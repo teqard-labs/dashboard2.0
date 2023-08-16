@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/dashboard2.0/login',
+  base: '/dashboard2.0/',
   define: {
     'process.env': process.env
   },

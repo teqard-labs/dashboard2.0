@@ -1,7 +1,7 @@
 {
   "name": "dashboard2.0",
   "version": "0.1.0",
-  "homepage": "https://teqard-labs.github.io/dashboard2.0/",
+  "homepage": "/dashboard2.0/",
   "scripts": {
     "dev": "vite --host",
     "predeploy": "npm run build",

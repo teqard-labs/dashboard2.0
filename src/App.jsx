@@ -32,13 +32,14 @@ function App() {
   return (
     <>
 
-      <Routes>
-        <Route path="/">
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="" element={<LoginPage />} />
-          <Route path="signup" element={<SignupPage />} />
-        </Route>
-      </Routes>
+<Routes>
+  <Route path="/">
+    <Route path="" element={<LoginPage />} />
+    <Route path="dashboard" element={<Dashboard />} />
+    <Route path="signup" element={<SignupPage />} />
+  </Route>
+</Routes>
+
     </>
   );
 }

@@ -5,7 +5,7 @@ import App from './App';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Router>
+    <Router basename="/dashboard2.0">
       <App />
     </Router>
   </React.StrictMode>

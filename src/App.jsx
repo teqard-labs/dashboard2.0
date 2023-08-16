@@ -33,9 +33,9 @@ function App() {
     <>
     
       <Routes basename={process.env.PUBLIC_URL}>
-        <Route exact path="/dashboard2.0/dashboard" element={<Dashboard />} />
-        <Route exact path="/dashboard2.0/login" element={<LoginPage/>} />
-        <Route exact path="/dashboard2.0/signup" element={<SignupPage/>} />
+        <Route exact path="/dashboard" element={<Dashboard />} />
+        <Route exact path="/" element={<LoginPage/>} />
+        <Route exact path="/signup" element={<SignupPage/>} />
       </Routes>
     </>
   );

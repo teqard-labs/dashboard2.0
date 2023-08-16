@@ -1,7 +1,7 @@
 import React from 'react'
 import Login from "./Login"
 import Header from './Header'
-import './bg.css'
+
 
 export default function LoginPage() {
     return (

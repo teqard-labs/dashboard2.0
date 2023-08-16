@@ -1,7 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../firebase/firebase';
 import { loginFields } from "./Fields";
 import FormAction from "./FormAction";
 import FormExtra from "./FormExtra";
@@ -10,6 +8,9 @@ import Input from "./Input";
 const fields = loginFields;
 let fieldsState = {};
 fields.forEach(field => fieldsState[field.id] = '');
+
+const predefinedEmail = 'ufarms123@gmail.com'; 
+const predefinedPassword = 'password';
 
 const mapErrorCodeToCustomMessage = (errorCode) => {
     switch (errorCode) {
@@ -33,30 +34,20 @@ export default function Login() {
 
     const handleChange = (e) => {
         setLoginState({ ...loginState, [e.target.id]: e.target.value });
-    }
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        authenticateUser();
-    }
 
-    const authenticateUser = async () => {
-        const email = loginState.email;
-        const password = loginState.password;
+        const { email, password } = loginState;
 
-        try {
-            const userCredential = await signInWithEmailAndPassword(auth, email, password);
-            // Signed in
-            const user = userCredential.user;
-            console.log("User signed in successfully:", user);
+        if (email === predefinedEmail && password === predefinedPassword) {
             navigate('/dashboard');
-        } catch (error) {
-            const errorCode = error.code;
-            const customErrorMessage = mapErrorCodeToCustomMessage(errorCode);
-            console.error("Error signing in user:", errorCode, customErrorMessage);
+        } else {
+            const customErrorMessage = 'Invalid email or password';
             setErrorMessage(customErrorMessage);
         }
-    } 
+    };
 
     return (
         <>
@@ -68,28 +59,25 @@ export default function Login() {
 
             <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
                 <div className="-space-y-px">
-                    {
-                        fields.map(field =>
-                            <Input
-                                key={field.id}
-                                handleChange={handleChange}
-                                value={loginState[field.id]}
-                                labelText={field.labelText}
-                                labelFor={field.labelFor}
-                                id={field.id}
-                                name={field.name}
-                                type={field.type}
-                                isRequired={field.isRequired}
-                                placeholder={field.placeholder}
-                            />
-                        )
-                    }
+                    {fields.map((field) => (
+                        <Input
+                            key={field.id}
+                            handleChange={handleChange}
+                            value={loginState[field.id]}
+                            labelText={field.labelText}
+                            labelFor={field.labelFor}
+                            id={field.id}
+                            name={field.name}
+                            type={field.type}
+                            isRequired={field.isRequired}
+                            placeholder={field.placeholder}
+                        />
+                    ))}
                 </div>
 
                 <FormExtra />
                 <FormAction handleSubmit={handleSubmit} text="Login" />
-
             </form>
         </>
-    )
+    );
 }

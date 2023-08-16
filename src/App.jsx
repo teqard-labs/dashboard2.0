@@ -17,6 +17,7 @@ import './charts/ChartjsConfig';
 // Import pages
 import Dashboard from './pages/Dashboard';
 
+
 function App() {
 
   const location = useLocation();
@@ -30,7 +31,7 @@ function App() {
   return (
     <>
     
-      <Routes>
+      <Routes basename={process.env.PUBLIC_URL}>
         <Route exact path="/dashboard" element={<Dashboard />} />
         <Route exact path="/login" element={<LoginPage/>} />
         <Route exact path="/signup" element={<SignupPage/>} />

@@ -2,7 +2,7 @@ import React from 'react';
 import './Fields'
 import Header from "./Header";
 import Signup from "./Signup";
-import './bg.css'
+
 
 export default function SignupPage() {
     return (

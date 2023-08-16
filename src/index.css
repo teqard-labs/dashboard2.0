@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.background {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(-45deg, #4CAF50 0%, #8BC34A 25%, #CDDC39 50%, #FFEB3B 75%, #FFC107 100%);
+    background-size: 400% 400%;
+    position: relative;
+    animation: animate 5s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  @keyframes animate {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  

@@ -28,13 +28,14 @@ function App() {
     document.querySelector('html').style.scrollBehavior = ''
   }, [location.pathname]); // triggered on route change
 
+
   return (
     <>
     
       <Routes basename={process.env.PUBLIC_URL}>
-        <Route exact path="/dashboard" element={<Dashboard />} />
-        <Route exact path="/login" element={<LoginPage/>} />
-        <Route exact path="/signup" element={<SignupPage/>} />
+        <Route exact path="/dashboard2.0/dashboard" element={<Dashboard />} />
+        <Route exact path="/dashboard2.0/login" element={<LoginPage/>} />
+        <Route exact path="/dashboard2.0/signup" element={<SignupPage/>} />
       </Routes>
     </>
   );

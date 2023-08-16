@@ -1,7 +1,7 @@
 {
   "name": "dashboard2.0",
   "version": "0.1.0",
-  "homepage": "https://teqard-labs.github.io/dashboard2.0",
+  "homepage": "https://teqard-labs.github.io/dashboard2.0/",
   "scripts": {
     "dev": "vite --host",
     "predeploy": "npm run build",
@@ -10,11 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@aws-amplify/ui-react": "^5.1.0",
     "@tailwindcss/forms": "^0.5.3",
+    "aws-amplify": "^5.3.7",
     "chart.js": "^4.2.1",
     "chartjs-adapter-moment": "^1.0.1",
     "firebase": "^9.19.1",
+    "gh-pages": "^6.0.0",
     "moment": "^2.29.4",
+    "protobufjs": "^7.2.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-flatpickr": "^3.10.13",
@@ -24,9 +28,8 @@
   "devDependencies": {
     "@vitejs/plugin-react": "^3.1.0",
     "autoprefixer": "^10.4.14",
-    "gh-pages": "^6.0.0",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.3.1",
-    "vite": "^4.2.1"
+    "vite": "^4.4.9"
   }
 }

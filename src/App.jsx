@@ -18,29 +18,24 @@ import './charts/ChartjsConfig';
 import Dashboard from './pages/Dashboard';
 
 
-function App() {
 
+function App() {
   const location = useLocation();
 
   useEffect(() => {
-    document.querySelector('html').style.scrollBehavior = 'auto'
-    window.scroll({ top: 0 })
-    document.querySelector('html').style.scrollBehavior = ''
+    document.querySelector('html').style.scrollBehavior = 'auto';
+    window.scroll({ top: 0 });
+    document.querySelector('html').style.scrollBehavior = '';
   }, [location.pathname]); // triggered on route change
 
-
   return (
-    <>
-
-<Routes>
-  <Route path="/">
-    <Route path="" element={<LoginPage />} />
-    <Route path="dashboard" element={<Dashboard />} />
-    <Route path="signup" element={<SignupPage />} />
-  </Route>
-</Routes>
-
-    </>
+    <Routes>
+      <Route path="/">
+        <Route path="" element={<LoginPage />} />
+        <Route path="dashboard" element={<Dashboard />} />
+        <Route path="signup" element={<SignupPage />} />
+      </Route>
+    </Routes>
   );
 }
 

@@ -5,26 +5,9 @@ import react from '@vitejs/plugin-react'
 // https://vitejs.dev/config/
 export default defineConfig({
   base: '/dashboard2.0/',
-  define: {
-    'process.env': process.env
-  },
   css: {
     postcss,
   },
   plugins: [react()],
-  resolve: {
-    alias: [
-      {
-        find: /^~.+/,
-        replacement: (val) => {
-          return val.replace(/^~/, "");
-        },
-      },
-    ],
-  },
-  build: {
-    commonjsOptions: {
-      transformMixedEsModules: true,
-    }
-  } 
-})
+ 
+});

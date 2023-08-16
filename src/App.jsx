@@ -31,11 +31,13 @@ function App() {
 
   return (
     <>
-    
-      <Routes basename={process.env.PUBLIC_URL}>
-        <Route exact path="/dashboard" element={<Dashboard />} />
-        <Route exact path="/" element={<LoginPage/>} />
-        <Route exact path="/signup" element={<SignupPage/>} />
+
+      <Routes path="/">
+        <Route path="/">
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path=" " element={<LoginPage />} />
+          <Route path="signup" element={<SignupPage />} />
+        </Route>
       </Routes>
     </>
   );

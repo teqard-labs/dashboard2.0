@@ -42,7 +42,7 @@ export default function Login() {
         const { email, password } = loginState;
 
         if (email === predefinedEmail && password === predefinedPassword) {
-            navigate('/dashboard2.0/dashboard');
+            navigate('/dashboard');
         } else {
             const customErrorMessage = 'Invalid email or password';
             setErrorMessage(customErrorMessage);

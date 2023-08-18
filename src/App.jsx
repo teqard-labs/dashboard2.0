@@ -3,21 +3,14 @@ import {
   Routes,
   Route,
   useLocation,
-  BrowserRouter,
 } from 'react-router-dom';
 import SignupPage from './components/SignupPage';
 import LoginPage from './components/LoginPage';
+import Dashboard from './pages/Dashboard';
 import './index.css';
 import 'tailwindcss/tailwind.css';
-
 import './css/style.css';
-
 import './charts/ChartjsConfig';
-
-// Import pages
-import Dashboard from './pages/Dashboard';
-
-
 
 function App() {
   const location = useLocation();
@@ -26,12 +19,12 @@ function App() {
     document.querySelector('html').style.scrollBehavior = 'auto';
     window.scroll({ top: 0 });
     document.querySelector('html').style.scrollBehavior = '';
-  }, [location.pathname]); // triggered on route change
+  }, [location.pathname]);
 
   return (
     <Routes>
       <Route path="/">
-        <Route path="" element={<LoginPage />} />
+        <Route index element={<LoginPage />} />
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="signup" element={<SignupPage />} />
       </Route>

@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "vite --host",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "build": "vite build --base=https://teqard-labs.github.io/",
+    "deploy": "gh-pages -d dist",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {

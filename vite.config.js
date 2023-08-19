@@ -8,5 +8,6 @@ export default defineConfig({
     postcss,
   },
   plugins: [react()],
+  base: "/dashboard2.0/",
  
 });

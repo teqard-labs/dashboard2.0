@@ -9,5 +9,8 @@ export default defineConfig({
   },
   plugins: [react()],
   base: "/dashboard2.0/",
+
  
 });
+
+

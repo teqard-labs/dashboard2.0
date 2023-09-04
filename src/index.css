@@ -28,3 +28,84 @@
     }
   }
   
+  //Button1
+
+  .parent {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Add this line to horizontally center the buttons */
+  }
+  
+  /* Remove the margin-bottom for .button1 to avoid unnecessary spacing */
+  .button1 {
+    background-color: #48abe0;
+    color: white;
+    border: none;
+    padding: 5px;
+    font-size: 31px;
+    height: 200px;
+    width: 200px;
+    box-shadow: 0 2px 4px darkslategray;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  /* Add margin-right to create spacing between buttons */
+  .button1:not(:last-child) {
+    margin-right: 10px;
+  }
+  
+  .button1:hover {
+   background-color: #65b9e6;
+  }
+  
+  .button1:active {
+    box-shadow: 0 0 2px darkslategray;
+    transform: translateY(2px);
+  }
+  
+  .button1 {
+    margin-bottom: 10px;
+  }
+
+  
+  .round-6 {
+    border-radius: 70%;
+  }
+
+
+  .custom-button {
+    position: relative;
+    overflow: hidden;
+    border: 5px solid;
+    transition: background-color 0.5s, border-color 0.5s;
+    margin-bottom: 30px;
+  }
+
+  .custom-button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    border: 0;
+    border-radius: 50%;
+    transition: width 0.5s, height 0.5s, background-color 0.5s, border-width 0.5s;
+  }
+
+  .custom-button:hover::before {
+    width: 400%; /* Adjust the size as needed */
+    height: 400%; /* Adjust the size as needed */
+    background-color: transparent;
+    border: 0;
+  }
+
+  .custom-button:hover {
+    background-color: transparent;
+    border-color: gray; /* Adjust the border color as needed */
+  }
+
+  

@@ -1,52 +1,45 @@
 import React, { useState } from 'react';
-
+import RadialProgressBar from '../components/RadialProgressBar'
 import Sidebar from '../partials/Sidebar';
 import Header from '../partials/Header';
 import WelcomeBanner from '../partials/dashboard/WelcomeBanner';
 import DashboardAvatars from '../partials/dashboard/DashboardAvatars';
 import FilterButton from '../partials/actions/FilterButton';
 import Datepicker from '../partials/actions/Datepicker';
-import DashboardCard01 from '../partials/dashboard/DashboardCard01';
-import DashboardCard02 from '../partials/dashboard/DashboardCard02';
-import DashboardCard03 from '../partials/dashboard/DashboardCard03';
-import DashboardCard04 from '../partials/dashboard/DashboardCard04';
-import DashboardCard05 from '../partials/dashboard/DashboardCard05';
-import DashboardCard06 from '../partials/dashboard/DashboardCard06';
-import DashboardCard07 from '../partials/dashboard/DashboardCard07';
-import DashboardCard08 from '../partials/dashboard/DashboardCard08';
-import DashboardCard09 from '../partials/dashboard/DashboardCard09';
-import DashboardCard10 from '../partials/dashboard/DashboardCard10';
-import DashboardCard11 from '../partials/dashboard/DashboardCard11';
-import DashboardCard12 from '../partials/dashboard/DashboardCard12';
-import DashboardCard13 from '../partials/dashboard/DashboardCard13';
-import Banner from '../partials/Banner';
+
 import Placeholder from "../images/ph.png";
 
 function Dashboard() {
-
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const OxyTonnes = 6;
+  const People = 4685;
+  const Carbon = 2;
+
+  const buttonData = [
+    { id: 1, imageUrl: Placeholder, yvalue: 120, cvalue: 0.2 },
+    { id: 2, imageUrl: Placeholder, yvalue: 100, cvalue: 0.53 },
+    { id: 3, imageUrl: Placeholder, yvalue: 130, cvalue: 0.9 },
+    { id: 4, imageUrl: Placeholder, yvalue: 180, cvalue: 0.38 },
+    { id: 5, imageUrl: Placeholder, yvalue: 200, cvalue: 0.6 },
+  ];
 
   return (
     <div className="flex h-screen overflow-hidden">
-
       {/* Sidebar */}
       <Sidebar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
       {/* Content area */}
       <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
-
         {/*  Site header */}
         <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
 
         <main>
           <div className="px-4 sm:px-6 lg:px-8 py-8 w-full max-w-9xl mx-auto">
-
             {/* Welcome banner */}
             {/* <WelcomeBanner /> */}
 
             {/* Dashboard actions */}
             <div className="sm:flex sm:justify-between sm:items-center mb-8">
-
               {/* Left: Avatars */}
               <DashboardAvatars />
 
@@ -64,37 +57,55 @@ function Dashboard() {
                   <span className="hidden xs:block ml-2">Add view</span>
                 </button>
               </div>
-
             </div>
 
             {/* Cards */}
             <div className="flex">
-              <div className='parent'>
-                <button className="round-6 button1 ml-10 custom-button">
-                  <img src={Placeholder} className='scale-75' alt="PH" />                
-                </button>
-                <button className="round-6 button1 ml-10 custom-button">
-                  <img src={Placeholder} className='scale-75' alt="PH" />
-                </button>
-                <button className="round-6 button1 ml-10 custom-button">
-                  <img src={Placeholder} className='scale-75' alt="PH" />
-                </button>
-                <button className="round-6 button1 ml-10 custom-button">
-                  <img src={Placeholder} className='scale-75' alt="PH" />
-                </button>
-                <button className="round-6 button1 ml-10 custom-button">
-                  <img src={Placeholder} className='scale-75' alt="PH" />
-                </button>
+              <div className="grid grid-cols-3 gap-8 gap-x-16">
+                {buttonData.map((button) => (
+                  <div key={button.id} className="relative">
+                    {/* Button */}
+                    <button className="round-6 button1 mb-4 custom-button relative">
+                      <img src={button.imageUrl} className='scale-75' alt={`PH ${button.id}`} />
+                      {/* Small top-left button */}
+                    </button>
+                    <button className="absolute top-3 round-6 -left-3 w-14 h-14 custom-mini-button bg-[#a6ff00] text-black font-semibold">{button.yvalue} Kg/Month</button>
+                    {/* Small bottom-right button */}
+                    <button className="absolute bottom-5 round-6 right-0 w-14 h-14 custom-mini-button bg-[#000000] text-white font-semibold">{button.cvalue} Kg CO2e</button>
+                  </div>
+                ))}
               </div>
             </div>
 
+            {/* Radial Progress Bar */}
+            <div className="flex flex-col fixed bottom-[30%] right-[5%] scale-100">
+              <RadialProgressBar/>  
           </div>
-        </main>
-
-        <Banner />
 
       </div>
+    </main>
+        {/* Rectangle box at the bottom center */ }
+  <div className="fixed bottom-4 left-[25%] rounded-full bg-gray-200 h-16 w-[50%] flex justify-center items-center shadow-lg">
+    <div className="flex space-x-10">
+      {/* First section */}
+      <div className="flex-1 text-center border-r border-gray-300 pr-4">
+        <h4 className="text-xl font-semibold">Section 1</h4>
+        <p>Produces {OxyTonnes} Tonnes of Oxygen</p>
+      </div>
+      {/* Second section */}
+      <div className="flex-1 text-center border-r border-gray-300 pr-4">
+        <h4 className="text-xl font-semibold">Section 2</h4>
+        <p>Allows {People} people to breath for an entire day </p>
+      </div>
+      {/* Third section */}
+      <div className="flex-1 text-center">
+        <h4 className="text-xl font-semibold">Section 3</h4>
+        <p>Stores {Carbon} tons of Carbon</p>
+      </div>
     </div>
+  </div>
+      </div >
+    </div >
   );
 }
 

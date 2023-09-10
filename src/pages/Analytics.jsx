@@ -4,7 +4,6 @@ import Header from '../partials/Header';
 import DashboardAvatars from '../partials/dashboard/DashboardAvatars';
 import FilterButton from '../partials/actions/FilterButton';
 import Datepicker from '../partials/actions/Datepicker';
-import Banner from '../partials/Banner';
 import DashboardCard01 from '../partials/dashboard/DashboardCard01';
 import DashboardCard02 from '../partials/dashboard/DashboardCard02';
 import DashboardCard03 from '../partials/dashboard/DashboardCard03';
@@ -97,7 +96,6 @@ const Analytics = () => {
           </div>
         </main>
 
-        <Banner />
 
       </div>
     </div>

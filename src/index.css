@@ -38,13 +38,13 @@
   
   /* Remove the margin-bottom for .button1 to avoid unnecessary spacing */
   .button1 {
-    background-color: #48abe0;
+    background-color: #fff;
     color: white;
     border: none;
     padding: 5px;
     font-size: 31px;
-    height: 200px;
-    width: 200px;
+    height: 165px;
+    width: 165px;
     box-shadow: 0 2px 4px darkslategray;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -56,7 +56,7 @@
   }
   
   .button1:hover {
-   background-color: #65b9e6;
+   background-color: #fff;
   }
   
   .button1:active {
@@ -77,9 +77,14 @@
   .custom-button {
     position: relative;
     overflow: hidden;
-    border: 5px solid;
+    border: 5px solid green;
     transition: background-color 0.5s, border-color 0.5s;
     margin-bottom: 30px;
+  }
+  .custom-mini-button{
+    border: 1px solid #000000;
+    transition: background-color 0.5s, border-color 0.5s;
+    font-size: 10px;
   }
 
   .custom-button::before {
@@ -107,5 +112,15 @@
     background-color: transparent;
     border-color: gray; /* Adjust the border color as needed */
   }
+
+  /* Radial Progress bar */
+.bg-conic-gradient-green {
+  background: conic-gradient(greenyellow 0%, greenyellow 100%, transparent 0%, transparent 100%);
+}
+
+.bg-conic-gradient-gray {
+  background: conic-gradient(#ccc 0%, #ccc 100%, transparent 0%, transparent 100%);
+}
+
 
   

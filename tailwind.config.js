@@ -24,7 +24,12 @@ module.exports = {
       // => @media (min-width: 1536px) { ... }
 
     },
-    extend: {},
+    extend: {
+      scale:{
+        '60': '0.6',
+        '65': '0.65',
+      }
+    },
   },
   plugins: [],
 }

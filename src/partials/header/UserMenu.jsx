@@ -1,12 +1,22 @@
+// UserMenu.jsx
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Transition from '../../utils/Transition';
+import LogoutModal from '../LogoutModal';
 
 import UserAvatar from '../../images/user-avatar-32.png';
 
 function UserMenu() {
-
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
 
   const trigger = useRef(null);
   const dropdown = useRef(null);
@@ -69,7 +79,7 @@ function UserMenu() {
             <div className="text-xs text-slate-500 italic">Administrator</div>
           </div>
           <ul>
-            <li>
+            {/* <li>
               <Link
                 className="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
                 to="/"
@@ -77,21 +87,26 @@ function UserMenu() {
               >
                 Settings
               </Link>
-            </li>
+            </li> */}
             <li>
-              <Link
-                className="font-medium text-sm text-indigo-500 hover:text-indigo-600 flex items-center py-1 px-3"
-                to="/"
-                onClick={() => setDropdownOpen(!dropdownOpen)}
+              <button
+                className="font-medium text-sm text-red-500 hover:text-red-700 flex items-center py-1 px-3"
+                onClick={() => {
+                  setDropdownOpen(!dropdownOpen);
+                  openModal();
+                }}
               >
                 Sign Out
-              </Link>
+              </button>
             </li>
           </ul>
         </div>
       </Transition>
+      {isModalOpen && (
+        <LogoutModal onClose={closeModal} />
+      )}
     </div>
-  )
+  );
 }
 
 export default UserMenu;

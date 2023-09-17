@@ -4,6 +4,7 @@ import SignupPage from './components/SignupPage';
 import LoginPage from './components/LoginPage';
 import Dashboard from './pages/Dashboard';
 import Analytics from './pages/Analytics';
+import Crops from './components/Crops';
 import LogoutModal from './partials/LogoutModal';
 import './index.css';
 import 'tailwindcss/tailwind.css';
@@ -37,6 +38,7 @@ function App() {
       <Routes>
         <Route path="/">
           <Route path="/dashboard2.0/" element={<LoginPage />} />
+          <Route path="/dashboard2.0/:farmId/" element={<Crops/>}/>   
           <Route path="/dashboard2.0/analytics" element={<Analytics />} />
           <Route path="/dashboard2.0/dashboard" element={<Dashboard />} />
           <Route path="/dashboard2.0/signup" element={<SignupPage />} />

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'
 import RadialProgressBar from '../components/RadialProgressBar'
 import Sidebar from '../partials/Sidebar';
 import Header from '../partials/Header';
@@ -65,10 +66,12 @@ function Dashboard() {
                 {buttonData.map((button) => (
                   <div key={button.id} className="relative">
                     {/* Button */}
+                    <Link to={`/dashboard2.0/${button.id}/`}>
                     <button className="round-6 button1 mb-4 custom-button relative">
                       <img src={button.imageUrl} className='scale-75' alt={`PH ${button.id}`} />
                       {/* Small top-left button */}
                     </button>
+                    </Link>
                     <button className="absolute top-3 round-6 -left-3 w-14 h-14 custom-mini-button bg-[#a6ff00] text-black font-semibold">{button.yvalue} Kg/Month</button>
                     {/* Small bottom-right button */}
                     <button className="absolute bottom-5 round-6 right-0 w-14 h-14 custom-mini-button bg-[#000000] text-white font-semibold">{button.cvalue} Kg CO2e</button>
